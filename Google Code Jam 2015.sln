@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Dijkstra", "Dijkstra\Dijkst
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ominous Omino", "Ominous Omino\Ominous Omino.vcxproj", "{DFCBD24E-4D01-4D51-91AF-59B965E5A4B8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Qualification Round", "Qualification Round", "{5BFF22B7-5ED2-461A-B6D3-781BF1A80A3B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -36,5 +38,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A9DDCE49-62D7-4079-92D0-3B283BEB3D7A} = {5BFF22B7-5ED2-461A-B6D3-781BF1A80A3B}
+		{4EFEB61A-499E-45ED-BD23-8560475FE6A1} = {5BFF22B7-5ED2-461A-B6D3-781BF1A80A3B}
+		{89B3CE12-D08F-4FFC-ACD4-F026871F393F} = {5BFF22B7-5ED2-461A-B6D3-781BF1A80A3B}
+		{DFCBD24E-4D01-4D51-91AF-59B965E5A4B8} = {5BFF22B7-5ED2-461A-B6D3-781BF1A80A3B}
 	EndGlobalSection
 EndGlobal
