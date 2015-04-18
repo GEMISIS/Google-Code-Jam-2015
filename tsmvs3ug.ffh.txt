@@ -1,0 +1,32 @@
+﻿Round 1A Updates
+-Added problems from Round 1A
+-Mushroom Monster is solved (for large and small cases).
+-Other solutions (and spelling fixes) coming in the future!
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is up-to-date with 'origin/master'.
+#
+# Changes to be committed:
+#	modified:   Google Code Jam 2015.sln
+#	new file:   Haircut/Haircut.vcxproj
+#	new file:   Haircut/Haircut.vcxproj.filters
+#	new file:   Haircut/main.cpp
+#	new file:   Haircut/out.txt
+#	new file:   Haircut/test.txt
+#	new file:   Logging/Logging.vcxproj
+#	new file:   Logging/Logging.vcxproj.filters
+#	new file:   Logging/main.cpp
+#	new file:   Logging/out.txt
+#	new file:   Logging/test.txt
+#	new file:   Muschroom Monster/Muschroom Monster.vcxproj
+#	new file:   Muschroom Monster/Muschroom Monster.vcxproj.filters
+#	new file:   Muschroom Monster/main.cpp
+#	new file:   Muschroom Monster/out.txt
+#	new file:   Muschroom Monster/test.txt
+#	new file:   Template/Template.vcxproj
+#	new file:   Template/Template.vcxproj.filters
+#	new file:   Template/main.cpp
+#
+
