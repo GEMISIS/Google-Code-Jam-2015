@@ -37,47 +37,21 @@ int main(int argc, char* argv[])
 			pancakes.push_back(pancake);
 		}
 
-		sort(pancakes.begin(), pancakes.end());
-		unsigned int longestTime = pancakes.back();
+		const unsigned int maxPancakes = *max_element(pancakes.begin(), pancakes.end());
+		unsigned int totalTime = maxPancakes;
 
-		unsigned int count = pancakes.size();
-		unsigned int shortestTime = longestTime;
-
-		for (unsigned int i = 0; i < count;i += 1)
+		for (unsigned int x = 1; x < maxPancakes; x += 1)
 		{
-			unsigned int lower = longestTime / 2;
-			unsigned int upper = longestTime - lower;
+			unsigned int totalMoves = 0;
 
-			unsigned int increaseAmount = 0;
-			do
+			for (const int pancake : pancakes)
 			{
-				pancakes.pop_back();
-				increaseAmount += 1;
-			} while (pancakes.size() > 0 && pancakes.back() == longestTime);
-			for (unsigned int i = 0; i < increaseAmount; i += 1)
-			{
-				pancakes.push_back(lower);
-				pancakes.push_back(upper);
+				totalMoves += (pancake - 1) / x;
 			}
-
-			for (int i = 0; i < pancakes.size(); i += 1)
-			{
-				pancakes[i] += increaseAmount;
-			}
-			sort(pancakes.begin(), pancakes.end());
-
-			if (longestTime < shortestTime)
-			{
-				shortestTime = longestTime;
-			}
-			if (pancakes.back() < shortestTime)
-			{
-				shortestTime = pancakes.back();
-			}
-
-			longestTime = pancakes.back();
+			totalTime = min(totalTime, totalMoves + x);
 		}
-		time.push_back(shortestTime);
+
+		time.push_back(totalTime);
 	}
 	for (unsigned int tc = 0; tc < testCases; tc += 1)
 	{

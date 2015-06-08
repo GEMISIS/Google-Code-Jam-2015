@@ -18,61 +18,72 @@ where x is the test case and y is the barber who will cut your hair.
 
 using namespace std;
 
-unsigned long long solve(unsigned long long pos, vector<unsigned long long> barbers)
+long solve(long pos, vector<long> barbers)
 {
-	unsigned long long maxTime = 1000000000;
-	for (unsigned long long i = 0; i < barbers.size(); i += 1)
-	{
-	}
+	long low = -1, high = 10000 * pos;
+	long haircutsGiven = 0;
+	long mid = (low + high) / 2;
 
-	unsigned long long barber = 0;
-	pos -= barbers.size();
-	vector<unsigned long long> bt;
-	unsigned long long barberMin = 100000;
+	while (low + 1 < high)
+	{
+		mid = (low + high) / 2;
 
-	for (unsigned long long i = 0; i < barbers.size(); i += 1)
-	{
-		bt.push_back(1);
-		barberMin = min(barberMin, barbers[i]);
-	}
-	while (pos + 1 > 1)
-	{
-		for (unsigned long long i = 0; i < barbers.size() && pos + 1 > 1; i += 1)
+		haircutsGiven = 0;
+		for (long i = 0; i < barbers.size(); i += 1)
 		{
-			if (barbers[i] <= bt[i])
-			{
-				barber = i;
-				pos -= 1;
-				bt[i] = 1;
-			}
-			else
-			{
-				bt[i] += barberMin;
-			}
+			haircutsGiven += mid / barbers[i] + 1;
+		}
+
+		if (haircutsGiven < pos)
+		{
+			low = mid;
+		}
+		else
+		{
+			high = mid;
 		}
 	}
 
-	return barber + 1;
+	long t = high;
+	haircutsGiven = 0;
+	for (long i = 0; i < barbers.size(); i += 1)
+	{
+		haircutsGiven += t / barbers[i];
+	}
+	long customersLeft = pos - haircutsGiven;
+
+	for (long i = 0; i < barbers.size(); i += 1)
+	{
+		if (mid % barbers[i] == 0)
+		{
+			customersLeft -= 1;
+			if (customersLeft == 0)
+			{
+				return i;
+			}
+		}
+	}
+	return 0;
 }
 
 int main(int argc, char* argv[])
 {
-	unsigned int testCases = 0;
+	int testCases = 0;
 	cin >> testCases;
 
 	vector<string> testCaseYs;
 
-	for (unsigned int tc = 0; tc < testCases; tc += 1)
+	for (int tc = 0; tc < testCases; tc += 1)
 	{
-		unsigned long long barbers, mp;
-		vector<unsigned long long> barbersm;
+		long barbers, mp;
+		vector<long> barbersm;
 
 		cin >> barbers;
 		cin >> mp;
 
-		for (unsigned long long i = 0; i < barbers; i += 1)
+		for (long i = 0; i < barbers; i += 1)
 		{
-			unsigned long long temp;
+			long temp;
 			cin >> temp;
 			barbersm.push_back(temp);
 		}
@@ -80,7 +91,7 @@ int main(int argc, char* argv[])
 		testCaseYs.push_back(to_string(solve(mp, barbersm)));
 	}
 
-	for (unsigned int tc = 0; tc < testCases; tc += 1)
+	for (int tc = 0; tc < testCases; tc += 1)
 	{
 		cout << "Case #" << tc + 1 << ": " << testCaseYs[tc] << endl;
 	}
